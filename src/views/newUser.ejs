@@ -1,0 +1,92 @@
+<h1 class="text-center">thêm mới user</h1>
+<form action="/insert-new-user" method="post">
+  <div class="mb-3 mt-3">
+    <label for="username" class="form-label">ten dang nhap:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      placeholder="Enter username"
+      name="username"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">mật khẩu:</label>
+    <input
+      type="password"
+      class="form-control"
+      id="pwd"
+      placeholder="Enter password"
+      name="password"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="fullname" class="form-label">fullname:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="pwd"
+      placeholder="Enter fullname"
+      name="fullname"
+    />
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label for="address" class="form-label">Đia chi:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="address"
+      placeholder="Enter address"
+      name="address"
+    />
+  </div>
+  <div class="mb-3 mt-3">
+    <label for="email" class="form-label">email:</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      placeholder="Enter username"
+      name="email"
+    />
+  </div>
+  <div class="mb-3 mt-3">
+    <label for="Quyen" class="form-label">Quyen:</label>
+    <select
+      name="groupid"
+      class="form-select"
+      aria-label="Default select example"
+    >
+      <option value="1">admin</option>
+      <option value="2">user</option>
+    </select>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <div class="form-check">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="sex"
+        value="1"
+        checked
+      />Nam
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="sex"
+        value="0"
+      />Nữ
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+  </div>
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
