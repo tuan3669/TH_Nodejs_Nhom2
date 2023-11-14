@@ -56,26 +56,26 @@ const initWebRoute = (app) => {
 
   // xay dung Api
   // ▪ Trả về danh sách tài khoản
-  router.get("/api/v1/users", api.getAll);
+  router.get("/api/v1/users",isLogin, api.getAll);
 
-  // ▪ Trả về thông tin tài khoản cụ thể
+  //  Trả về thông tin tài khoản cụ thể
   // current user login
-  router.get("/api/v1/users/detail", verifyAccessToken, api.detail);
+  router.get("/api/v1/users/detail", isLogin, api.detail);
 
-  // ▪ Tạo tài khoản
+  //  Tạo tài khoản
   router.post("/api/v1/register", api.register);
 
-  // ▪ Sửa tài khoản
-  router.put("/api/v1/users", verifyAccessToken, api.edit);
+  //  Sửa tài khoản
+  router.put("/api/v1/users", isLogin, api.edit);
 
-  // ▪ Xóa tài khoản
-  router.delete("/api/v1/users", verifyAccessToken, api.del);
+  //  Xóa tài khoản
+  router.delete("/api/v1/users", isLogin, allowedRoles(), api.del);
 
-  // ▪ Đăng nhập
+  //  Đăng nhập
   router.post("/api/v1/login", api.loginApi);
 
-  // // ▪ Đăng xuất
-  router.get("/api/v1/logout", api.logout);
+  //  Đăng xuất
+  router.get("/api/v1/logout",isLogin, api.logout);
 
   return app.use("/", router);
 };

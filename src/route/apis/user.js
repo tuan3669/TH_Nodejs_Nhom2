@@ -40,8 +40,7 @@ export const del = async (req, res) => {
 };
 export const detail = async (req, res) => {
   //
-  console.log("detai ", req.user);
-  const [user, f] = await detailUserMd(req.user.username);
+  const [user, f] = await detailUserMd(req.params.username);
   if (user.length < 0) {
     return res.status(400).json({
       message: "user Not found",
@@ -89,6 +88,12 @@ export const loginApi = async (req, res) => {
     username: user[0].username,
     role: user[0].role,
   });
+
+  res.cookie('access_token', tokenUser, {
+    maxAge:  3 * 60 ,
+    httpOnly: true,
+    //secure: true;
+})
 
   return res.status(200).json({
     message: "login success",

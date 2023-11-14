@@ -1,13 +1,14 @@
 const jwt = require("jsonwebtoken");
-
 require("dotenv").config();
+dotenv.config();
+
 export const signAccessToken = async (data) => {
   return new Promise((resolve, reject) => {
     jwt.sign(
       data,
       process.env.JWT_SECRET,
       {
-        expiresIn: "360s",
+        expiresIn: "3 * 60",
       },
       function (error, token) {
         if (error) reject(error);
@@ -18,8 +19,9 @@ export const signAccessToken = async (data) => {
 };
 export const verifyAccessToken = (req, res, next) => {
   try {
-    const headers = req?.headers?.authorization;
-    const token = headers?.split(" ")[1];
+    // const headers =   const token = req.cookies.access_token;;
+    // const token = headers?.split(" ")[1];
+    const token =   req.cookies.access_token;
     const decode = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decode;
     next();

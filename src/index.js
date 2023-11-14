@@ -13,6 +13,11 @@ import { createClient } from "redis";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser()) //cookie-parser dùng để đọc cookies của request:
+app.use(cors({
+    origin: 'http://127.0.0.1:3000', //Chan tat ca cac domain khac ngoai domain nay
+    credentials: true //Để bật cookie HTTP qua CORS
+}))
 // Initialize client.
 let redisClient = createClient();
 redisClient.connect().catch(console.error);
