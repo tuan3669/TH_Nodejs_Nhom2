@@ -20,39 +20,39 @@ import { verifyAccessToken } from "../utils/auth";
 const router = express.Router();
 
 const initWebRoute = (app) => {
-  router.get("/", getHomePage);
-  router.get("/about", getAboutPage);
+  // router.get("/", getHomePage);
+  // router.get("/about", getAboutPage);
 
-  // authenticatd user
-  router.post("/login", loginUser);
-  router.post("/insert-new-user", isLogin, insertUser);
+  // // authenticatd user
+  // router.post("/login", loginUser);
+  // router.post("/insert-new-user", isLogin, insertUser);
 
-  // them moi user
-  router.get("/create-new-user", isLogin, createNewUser);
+  // // them moi user
+  // router.get("/create-new-user", isLogin, createNewUser);
 
-  // render page
-  router.get("/login", login);
-  router.get("/logout", logout);
-  // router.get("/insert-new-user", register);
-  router.get("/list-user/:page?", listUser);
-  router.get(
-    "/detail-user/:username?",
-    isLogin,
-    allowedRoles(["admin", "user"]),
-    detailUser
-  );
-  router.post("/edit-user", isLogin, allowedRoles(["admin", "user"]), editUser);
-  router.post(
-    "/update-user",
-    isLogin,
-    allowedRoles(["admin", "user"]),
-    updateUser
-  );
-  router.post("/del-user", isLogin, allowedRoles(["admin", "user"]), delUser);
+  // // render page
+  // router.get("/login", login);
+  // router.get("/logout", logout);
+  // // router.get("/insert-new-user", register);
+  // router.get("/list-user/:page?", listUser);
+  // router.get(
+  //   "/detail-user/:username?",
+  //   isLogin,
+  //   allowedRoles(["admin", "user"]),
+  //   detailUser
+  // );
+  // router.post("/edit-user", isLogin, allowedRoles(["admin", "user"]), editUser);
+  // router.post(
+  //   "/update-user",
+  //   isLogin,
+  //   allowedRoles(["admin", "user"]),
+  //   updateUser
+  // );
+  // router.post("/del-user", isLogin, allowedRoles(["admin", "user"]), delUser);
 
-  router.get((req, res) => {
-    res.send("Lỗi 404, không tìm thấy trang");
-  });
+  // router.get((req, res) => {
+  //   res.send("Lỗi 404, không tìm thấy trang");
+  // });
 
   // xay dung Api
   // ▪ Trả về danh sách tài khoản
